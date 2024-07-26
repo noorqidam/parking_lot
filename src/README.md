@@ -17,3 +17,9 @@ then run
 ```
 npx ts-node src/index.ts functional_spec/fixtures/file_input.txt
 ```
+
+After that, run the test with the command
+
+```
+npm run test
+```

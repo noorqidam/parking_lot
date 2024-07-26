@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
-class ParkingLot {
+export class ParkingLot {
   private capacity: number;
   private slots: (string | null)[];
   private charges: { [key: string]: number };
@@ -76,16 +76,18 @@ class ParkingLot {
   }
 }
 
-if (process.argv.length !== 3) {
-  console.log("Usage: node index.js <input_file>");
-  process.exit(1);
+if (require.main === module) {
+  if (process.argv.length !== 3) {
+    console.log("Usage: node index.js <input_file>");
+    process.exit(1);
+  }
+
+  const inputFilePath = path.resolve(__dirname, "../", process.argv[2]);
+  const commands = fs
+    .readFileSync(inputFilePath, "utf-8")
+    .split("\n")
+    .filter(Boolean);
+
+  const parkingLot = new ParkingLot(0);
+  parkingLot.processCommands(commands);
 }
-
-const inputFilePath = path.resolve(__dirname, "../", process.argv[2]);
-const commands = fs
-  .readFileSync(inputFilePath, "utf-8")
-  .split("\n")
-  .filter(Boolean);
-
-const parkingLot = new ParkingLot(0);
-parkingLot.processCommands(commands);
