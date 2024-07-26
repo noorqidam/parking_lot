@@ -1,4 +1,4 @@
-import { ParkingLot } from "../index"; // Sesuaikan jalur import sesuai kebutuhan
+import { ParkingLot } from "../index";
 import { expect } from "chai";
 import sinon from "sinon";
 import "mocha";
