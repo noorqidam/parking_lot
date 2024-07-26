@@ -1,0 +1,8 @@
+.DS_Store
+.rspec_status
+.idea/*
+log/*
+tmp/*
+vendor/bundle/*
+vendor/cache/*
+vendor/plugins/*
